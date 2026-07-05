@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #123b2a;
+  --color-pine-light: #1b5940;
+  --color-paper: #f8faf7;
+  --color-paper-dim: #eaf2ec;
+  --color-leaf: #2f9d63;
+  --color-leaf-dark: #227a4c;
+  --color-sage: #5c8b72;
+  --color-sage-dark: #3f6551;
+  --color-amber: #e3a73a;
+  --color-ink: #12211a;
+  --color-ink-soft: #5b6961;
+  --color-ink-line: #dbe7de;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Manrope", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
