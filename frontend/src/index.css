@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pine: #123b2a;
+  --color-pine: #0f6f57;
   --color-pine-light: #1b5940;
   --color-paper: #f8faf7;
   --color-paper-dim: #eaf2ec;
@@ -15,8 +15,7 @@
   --color-ink: #12211a;
   --color-ink-soft: #5b6961;
   --color-ink-line: #dbe7de;
-
-  --font-display: "Fraunces", "Georgia", serif;
+  --color-main-color: #0f6f57 --font-display: "Fraunces", "Georgia", serif;
   --font-sans: "Manrope", "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
 }

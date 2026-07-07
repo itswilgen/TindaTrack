@@ -7,22 +7,13 @@ function RegisterBusinessPage() {
   return (
     <main className="min-h-screen bg-paper-dim font-sans text-ink">
       <div className="mx-auto max-w-7xl px-6 py-8">
-        <header className="fixed left-0 top-0 z-50 w-full border-b border-ink-line bg-pine backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <Link to="/" className="flex items-center">
-              <BrandLogo className="h-12" />
-            </Link>
-            <div className="flex items-center gap-3"></div>
-          </div>
-        </header>
-
         <div className="mt-10 grid gap-10 lg:grid-cols-2">
           {/* Left */}
           <section className="flex flex-col justify-center">
             <p className="font-mono text-sm font-semibold uppercase tracking-widest text-amber">
               Start your free account
             </p>
-            <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
+            <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.1] text-pine sm:text-5xl">
               Open your business workspace with TindaTrack
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-ink-soft">

@@ -153,191 +153,26 @@ function peso(amount: number) {
   return `₱${amount.toLocaleString("en-PH")}`;
 }
 
-function DashboardMockup() {
-  return (
-    <div className="relative mx-auto w-full max-w-lg">
-      {/* Floating card: inventory summary */}
-      <div className="absolute -right-4 -top-6 z-20 hidden w-40 rounded-2xl border border-ink-line bg-white p-3.5 shadow-xl sm:block">
-        <p className="text-[11px] font-semibold text-ink-soft">
-          Inventory Summary
-        </p>
-        <div className="mt-2 flex items-center gap-3">
-          <div
-            className="relative h-12 w-12 shrink-0 rounded-full"
-            style={{
-              background:
-                "conic-gradient(var(--color-leaf) 0% 70%, var(--color-amber) 70% 85%, #d0574a 85% 100%)",
-            }}
-          >
-            <div className="absolute inset-1 flex items-center justify-center rounded-full bg-white font-mono text-[10px] font-semibold text-ink">
-              320
-            </div>
-          </div>
-          <div className="space-y-1 font-mono text-[9px] text-ink-soft">
-            <div className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-leaf" /> In Stock
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber" /> Low Stock
-            </div>
-            <div className="flex items-center gap-1">
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ background: "#d0574a" }}
-              />
-              Out of Stock
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Floating card: recent transaction (resibo callback) */}
-      <div
-        className="torn-edge absolute -bottom-8 -left-5 z-20 hidden w-40 rounded-t-lg border border-ink-line bg-white px-4 pb-4 pt-3 shadow-xl sm:block"
-        style={{ ["--tear-color" as string]: "#ffffff" }}
-      >
-        <p className="text-center font-mono text-[9px] uppercase tracking-widest text-ink-soft">
-          Receipt #0125
-        </p>
-        <p className="resibo-rule mt-2 pt-2 text-center font-mono text-sm font-semibold text-pine">
-          ₱256.00
-        </p>
-        <p className="mt-1 text-center font-mono text-[9px] text-ink-soft">
-          May 31 · 9:23 AM
-        </p>
-      </div>
-
-      {/* Main dashboard card */}
-      <div className="relative z-10 overflow-hidden rounded-2xl border border-ink-line bg-white shadow-2xl">
-        <div className="flex items-center gap-2 border-b border-ink-line bg-paper-dim px-4 py-2.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-amber" />
-          <span
-            className="h-2.5 w-2.5 rounded-full"
-            style={{ background: "#d0574a" }}
-          />
-          <span className="h-2.5 w-2.5 rounded-full bg-leaf" />
-          <span className="ml-2 font-mono text-[11px] text-ink-soft">
-            TindaTrack Dashboard
-          </span>
-        </div>
-
-        <div className="p-5">
-          <div className="flex items-center justify-between">
-            <h3 className="font-display text-base font-semibold text-ink">
-              Dashboard
-            </h3>
-            <span className="rounded-full bg-paper-dim px-3 py-1 text-[11px] font-medium text-ink-soft">
-              This Month
-            </span>
-          </div>
-
-          <div className="mt-4 grid grid-cols-3 gap-2.5">
-            {[
-              { label: "Total Sales", value: "₱128,540", delta: "+15.8%" },
-              { label: "Transactions", value: "1,248", delta: "+12.4%" },
-              { label: "Gross Profit", value: "₱46,320", delta: "+15.5%" },
-            ].map((stat) => (
-              <div key={stat.label} className="rounded-xl bg-paper-dim p-2.5">
-                <p className="text-[9px] uppercase tracking-wide text-ink-soft">
-                  {stat.label}
-                </p>
-                <p className="mt-1 font-mono text-xs font-semibold text-ink">
-                  {stat.value}
-                </p>
-                <p className="mt-0.5 text-[9px] font-semibold text-leaf-dark">
-                  {stat.delta}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4">
-            <p className="text-[11px] font-semibold text-ink-soft">
-              Sales Overview
-            </p>
-            <svg viewBox="0 0 280 60" className="mt-2 w-full">
-              <polyline
-                points="0,60 0,45 40,50 80,30 120,38 160,18 200,28 240,12 280,20 280,60"
-                fill="var(--color-leaf)"
-                opacity="0.12"
-              />
-              <polyline
-                points="0,45 40,50 80,30 120,38 160,18 200,28 240,12 280,20"
-                fill="none"
-                stroke="var(--color-leaf)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-soft">
-                Top Products
-              </p>
-              <ul className="mt-2 space-y-1.5 font-mono text-[10px] text-ink">
-                <li className="flex justify-between">
-                  <span>Coca Cola 1.5L</span>
-                  <span>₱3,250</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Nescafe Classic</span>
-                  <span>₱2,125</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Lucky Me Canton</span>
-                  <span>₱1,820</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-soft">
-                Low Stock Alerts
-              </p>
-              <ul className="mt-2 space-y-1.5 font-mono text-[10px] text-ink">
-                <li className="flex justify-between">
-                  <span>Coca Cola 1.5L</span>
-                  <span className="font-semibold text-amber">5 left</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Nescafe Classic</span>
-                  <span className="font-semibold text-amber">8 left</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Canned Tuna</span>
-                  <span className="font-semibold text-amber">6 left</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function LandingPage() {
   const [yearly, setYearly] = useState(false);
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-paper font-sans text-ink">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-ink-line bg-pine backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+      <header className="fixed left-0 top-0 z-50 w-full bg-transparent px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between rounded-3xl border border-ink-line bg-pine/15 px-6 py-3 shadow-lg shadow-pine/5 backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-3">
-            <BrandLogo className="h-12" />
+            <BrandLogo className="h-14" />
           </Link>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium text-white/90 md:flex">
-            <a href="#features" className="transition hover:text-ink">
+          <nav className="hidden items-center gap-8 text-sm font-medium text-pine md:flex">
+            <a href="#features" className="transition hover:text-white">
               Features
             </a>
-            <a href="#pricing" className="transition hover:text-ink">
+            <a href="#pricing" className="transition hover:text-white">
               Pricing
             </a>
-            <a href="#about" className="transition hover:text-ink">
+            <a href="#about" className="transition hover:text-white">
               About
             </a>
           </nav>
@@ -345,7 +180,7 @@ function LandingPage() {
           <div className="flex items-center gap-3">
             <Link
               to="/login"
-              className="rounded-full px-4 py-2 text-sm font-semibold text-white/90 hover:text-ink"
+              className="rounded-full px-4 py-2 text-sm font-semibold text-pine hover:bg-paper-dim"
             >
               Log in
             </Link>
@@ -376,12 +211,12 @@ function LandingPage() {
 
         <div className=" pt-25 relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-ink-line bg-paper-dim px-4 py-1.5 text-sm font-semibold text-leaf-dark">
+            <span className="inline-flex items-center gap-2 rounded-full border border-ink-line bg-paper-dim px-4 py-1.5 text-sm font-semibold text-leaf-dark mt-30">
               <BarChart3 size={16} /> All-in-one POS + Inventory Platform
             </span>
 
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] text-pine sm:text-5xl lg:text-[3.2rem]">
-              POS + Inventory SaaS for local businesses.
+              Run your store, Grow your store
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-ink-soft">
@@ -424,7 +259,7 @@ function LandingPage() {
         </div>
 
         {/* Trust bar */}
-        <div className="relative z-10 mx-auto mt-45 max-w-6xl rounded-3xl border border-ink-line bg-paper p-8 shadow-lg">
+        <div className="relative z-10 mx-auto mt-25 max-w-6xl rounded-2xl border border-ink-line bg-paper p-3 shadow-lg ">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-ink-line">
             {trustItems.map(({ icon: Icon, title, desc }, i) => (
               <div

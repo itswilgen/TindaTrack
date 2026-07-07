@@ -1,7 +1,7 @@
 // src/pages/LoginPage.tsx
 import loginImage from "../assets/login.png";
 import { Link } from "react-router-dom";
-import { EyeOff, Import, Lock, Mail } from "lucide-react";
+import { EyeOff, Lock, Mail } from "lucide-react";
 import BrandLogo from "../components/BrandLogo";
 
 function LoginPage() {
@@ -10,13 +10,6 @@ function LoginPage() {
       className="min-h-screen bg-cover bg-left bg-no-repeat font-sans text-ink"
       style={{ backgroundImage: `url(${loginImage})` }}
     >
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-ink-line bg-pine backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link to="/" className="flex items-center">
-            <BrandLogo className="h-12" />
-          </Link>
-        </div>
-      </header>
       <div className="mx-auto grid min-h-screen max-w-7xl lg:grid-cols-2">
         {/* Left */}
         <section className="relative hidden min-h-screen px-10 py-40 lg:block">
