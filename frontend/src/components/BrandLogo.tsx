@@ -1,4 +1,4 @@
-import logo from "../assets/TindaTrack logo.png";
+import logo from "../assets/images/TindaLogo.png";
 
 type BrandLogoProps = {
   className?: string;

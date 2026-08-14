@@ -1,4 +1,4 @@
-import { Outlet, NavLink, Link } from "react-router-dom";
+import { Outlet, NavLink, Link, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   ShoppingCart,
@@ -10,6 +10,9 @@ import {
   LogOut,
 } from "lucide-react";
 import BrandLogo from "../components/BrandLogo";
+import { ROUTES } from "../constants/routes";
+import { clearSession } from "../features/auth/session";
+import api from "../services/api";
 
 const menuItems = [
   { name: "Dashboard", path: "/owner/dashboard", icon: LayoutDashboard },
@@ -22,6 +25,18 @@ const menuItems = [
 ];
 
 function OwnerLayout() {
+  const navigate = useNavigate();
+
+  async function logout() {
+    try {
+      await api.post("/auth/logout");
+    } catch {
+      // Local cleanup still signs the user out if the API is unavailable.
+    }
+    clearSession();
+    navigate(ROUTES.login, { replace: true });
+  }
+
   return (
     <div className="min-h-screen bg-paper-dim font-sans text-ink">
       <aside className="fixed left-0 top-0 h-screen w-64 bg-pine text-white">
@@ -56,7 +71,7 @@ function OwnerLayout() {
             );
           })}
 
-          <button className="mt-6 flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-amber hover:bg-amber/10">
+          <button onClick={logout} className="mt-6 flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-amber hover:bg-amber/10">
             <LogOut size={18} />
             Logout
           </button>
